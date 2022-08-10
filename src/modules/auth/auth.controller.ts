@@ -40,7 +40,7 @@ export async function loginHandler(req: Request, res: Response) {
     maxAge: 900000, // 15 mins
     httpOnly: true,
     domain:
-      process.env.NODE_ENV !== "production" ? "localhost" : "vercel.app",
+      process.env.NODE_ENV !== "production" ? "localhost" : "election1.vercel.app",
     path: "/",
     sameSite: "strict",
     secure: false,
