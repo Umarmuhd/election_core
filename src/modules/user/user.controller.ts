@@ -49,8 +49,8 @@ export async function getCurrentUserHandler(req: Request, res: Response) {
 
     return res.status(200).json({
       status: "success",
-      message: "user data and wallet",
-      data: { ...user },
+      message: "user data",
+      data: { user },
     });
   } catch (error: any) {
     console.log(error)
