@@ -37,9 +37,12 @@ export async function loginHandler(req: Request, res: Response) {
   const accessToken = signJwt(payload);
 
   res.cookie('accessToken', accessToken, {
-    maxAge: 3.154e10, // 1 year
+    maxAge: 900000, // 15 mins
     httpOnly: true,
+    domain:
+      process.env.NODE_ENV !== "production" ? "localhost" : "escroww.africa",
     path: "/",
+    sameSite: "strict",
     secure: false,
   });
 

@@ -3,7 +3,7 @@ import { boolean, object, number, string, TypeOf } from "zod";
 export const updateAssignmentSchema = {
   body: object({
     ward: string(),
-    votes: number(),
+    votes: string(),
     party: string(),
 
 

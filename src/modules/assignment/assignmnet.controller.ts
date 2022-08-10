@@ -26,7 +26,7 @@ export async function createAssignmentHandler(
     // }
     // console.log(req.body.party);
     console.log(userId);
-    const wardvotes = await createAssignment({ ...req.body, owner: userId });
+    const wardvotes = await createAssignment({ ...req.body, votes: parseInt(req.body.votes), owner: userId });
 
     const existingVote = await PartyModel.findOne({ name: req.body.party })
 
@@ -35,7 +35,7 @@ export async function createAssignmentHandler(
       return;
     }
 
-    existingVote.votes = (existingVote.votes + req.body.votes);
+    existingVote.votes = (existingVote.votes + parseInt(req.body.votes));
 
     await existingVote.save();
     return res.status(StatusCodes.CREATED).json({
@@ -82,7 +82,7 @@ export async function getSingleAssignmentHandler(req: Request, res: Response) {
 export async function getAllUserAssignmentHandler(req: Request, res: Response) {
 
   try {
-    const votes = await AssignmentModel.find({}).sort({ votes: -1 });
+    const votes = await AssignmentModel.find({}).sort({ votes: -1 }).limit(5);
     return res
       .status(200)
       .json({ status: 'success', message: 'Votes list', data: votes });
