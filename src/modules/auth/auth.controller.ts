@@ -39,10 +39,7 @@ export async function loginHandler(req: Request, res: Response) {
   res.cookie('accessToken', accessToken, {
     maxAge: 3.154e10, // 1 year
     httpOnly: true,
-    domain:
-      process.env.NODE_ENV !== "production" ? "localhost" : "escroww.africa",
     path: "/",
-    sameSite: 'strict',
     secure: false,
   });
 
