@@ -33,7 +33,6 @@
     "path": "^0.12.7",
     "pino": "^7.10.0",
     "pino-pretty": "^7.6.1",
-    "uuid": "^8.3.2",
     "zod": "^3.14.4",
     "zod-express-middleware": "^1.4.0"
   },
