@@ -39,7 +39,7 @@ export async function loginHandler(req: Request, res: Response) {
   res.cookie('accessToken', accessToken, {
     maxAge: 900000, // 15 mins
     httpOnly: true,
-     domain: "localhost" || "election.umarzakari.me",
+     domain: "localhost" || "umarzakari.me",
     path: "/",
     sameSite: false,
     secure: false,
