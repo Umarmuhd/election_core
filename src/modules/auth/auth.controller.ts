@@ -39,8 +39,7 @@ export async function loginHandler(req: Request, res: Response) {
   res.cookie('accessToken', accessToken, {
     maxAge: 900000, // 15 mins
     httpOnly: true,
-     domain:
-      process.env.NODE_ENV !== "production" ? "localhost" : "umarzakari.me",
+     domain: "localhost" || "election.umarzakari.me",
     path: "/",
     sameSite: false,
     secure: false,
