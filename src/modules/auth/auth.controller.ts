@@ -39,7 +39,8 @@ export async function loginHandler(req: Request, res: Response) {
   res.cookie('accessToken', accessToken, {
     maxAge: 900000, // 15 mins
     httpOnly: true,
-    domain: "vercel.app",
+    domain:
+      process.env.NODE_ENV == "production" ? "election1.vercel.app" : "localhost",
     path: "/",
     secure: false,
   });
